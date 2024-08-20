@@ -6,12 +6,12 @@ $(document).ready(function() {
             var hash = this.hash;
             $('html, body').animate({
                 scrollTop: $(hash).offset().top - 56
-            }, 800);
-        }
-        
-        // Collapse the navbar after clicking a link in mobile view
-        if ($('.navbar-collapse').hasClass('show')) {
-            $('.navbar-toggler').click();
+            }, 800, function() {
+                // Collapse the navbar after the scroll animation is complete
+                if ($('.navbar-collapse').hasClass('show')) {
+                    $('.navbar-toggler').click();
+                }
+            });
         }
     });
 
@@ -69,15 +69,12 @@ $(document).ready(function() {
     // Contact form reset and fade-out message
     $('#contact-form').on('submit', function(e) {
         e.preventDefault();
-
         // Display success message
         $('#form-status').text('Thank you for your message. I will get back to you soon.').fadeIn();
-
         // Hide the success message after 5 seconds (5000 milliseconds)
         setTimeout(function() {
             $('#form-status').fadeOut();
         }, 5000);
-
         // Optionally reset the form
         $('#contact-form')[0].reset();
     });
