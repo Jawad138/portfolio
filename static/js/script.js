@@ -8,6 +8,11 @@ $(document).ready(function() {
                 scrollTop: $(hash).offset().top - 56
             }, 800);
         }
+        
+        // Collapse the navbar after clicking a link in mobile view
+        if ($('.navbar-collapse').hasClass('show')) {
+            $('.navbar-toggler').click();
+        }
     });
 
     // Navbar background change on scroll
@@ -60,9 +65,8 @@ $(document).ready(function() {
 
     // Trigger animations for elements in view on page load
     $(window).trigger('scroll');
-});
 
-$(document).ready(function() {
+    // Contact form reset and fade-out message
     $('#contact-form').on('submit', function(e) {
         e.preventDefault();
 
@@ -78,5 +82,3 @@ $(document).ready(function() {
         $('#contact-form')[0].reset();
     });
 });
-
-
