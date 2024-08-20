@@ -11,7 +11,7 @@ $(document).ready(function() {
                 var navbarToggler = $('.navbar-toggler');
                 var navbarCollapse = $('.navbar-collapse');
                 if (navbarCollapse.hasClass('show')) {
-                    navbarToggler.trigger('click');
+                    navbarToggler.click();
                 }
             });
         }
