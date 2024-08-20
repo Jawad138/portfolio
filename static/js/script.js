@@ -8,8 +8,10 @@ $(document).ready(function() {
                 scrollTop: $(hash).offset().top - 56
             }, 800, function() {
                 // Collapse the navbar after the scroll animation is complete
-                if ($('.navbar-collapse').hasClass('show')) {
-                    $('.navbar-toggler').click();
+                var navbarToggler = $('.navbar-toggler');
+                var navbarCollapse = $('.navbar-collapse');
+                if (navbarCollapse.hasClass('show')) {
+                    navbarToggler.trigger('click');
                 }
             });
         }
