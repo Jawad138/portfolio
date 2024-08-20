@@ -34,8 +34,8 @@ section {
     display: flex;
     align-items: center;
     padding: 4rem 0;
-    background-color: var(--primary-color); /* Set the default background for sections */
-    color: var(--light-text); /* Set the default text color for sections */
+    background-color: var(--primary-color);
+    color: var(--light-text);
 }
 
 .navbar {
@@ -63,11 +63,11 @@ section {
     overflow: hidden;
     border: 4px solid var(--secondary-color);
     border-radius: 50%;
-    transition: border-color 0.3s, box-shadow 0.3s ease; /* Added transition for box-shadow */
+    transition: border-color 0.3s, box-shadow 0.3s ease;
 }
 
 .profile-pic-container:hover {
-    box-shadow: 0 0 20px var(--secondary-color); /* Green shadow effect on hover */
+    box-shadow: 0 0 20px var(--secondary-color);
 }
 
 .profile-pic {
@@ -76,8 +76,6 @@ section {
     object-fit: cover;
 }
 
-
-
 h1, h2 {
     color: var(--secondary-color);
     text-align: center;
@@ -85,27 +83,23 @@ h1, h2 {
 }
 
 h1.animate__animated.animate__fadeInLeft {
-    font-family: 'Playfair Display', serif; /* Elegant and modern look */
-    font-size: 3em; /* Adjust the size as needed */
+    font-family: 'Playfair Display', serif;
+    font-size: 3em;
     font-weight: 700;
-    color: var(--secondary-color); /* Consistent with your color scheme */
+    color: var(--secondary-color);
 }
 
-/* Heading font style */
 h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 48px; /* Default size for desktop */
+    font-size: 48px;
 }
 
-/* Adjust font size and position for mobile devices */
 @media (max-width: 568px) {
     h1 {
-        font-size: 24px !important; /* Smaller size for mobile */
-        margin-top: 20px !important; /* Add margin to lower the heading */
+        font-size: 24px !important;
+        margin-top: 20px !important;
     }
 }
-
-
 
 p {
     color: var(--light-text);
@@ -115,15 +109,15 @@ p {
 }
 
 .btn-primary {
-    background-color: transparent; /* Transparent background */
-    border: 2px solid var(--secondary-color); /* Border color matches secondary color */
-    color: var(--secondary-color); /* Text color matches secondary color */
+    background-color: transparent;
+    border: 2px solid var(--secondary-color);
+    color: var(--secondary-color);
     transition: background-color 0.3s, color 0.3s;
 }
 
 .btn-primary:hover {
-    background-color: var(--secondary-color); /* Background color on hover */
-    color: var(--text-color); /* Text color on hover */
+    background-color: var(--secondary-color);
+    color: var(--text-color);
 }
 
 #experience h2 {
@@ -170,9 +164,8 @@ p {
 .card:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-    border: 2px solid var(--secondary-color); /* Green border on hover */
+    border: 2px solid var(--secondary-color);
 }
-
 
 .card-img-top {
     width: 100%;
@@ -212,23 +205,49 @@ footer a:hover {
     color: var(--secondary-color);
 }
 
-/* About Section */
 #about {
-    background-color: var(--primary-color); /* Black background */
-    color: var(--text-color); /* White text */
+    background-color: var(--primary-color);
+    color: var(--text-color);
 }
 
 #about p {
     font-size: 1.25rem;
 }
 
-/* Projects Section */
 #works {
-    background-color: var(--background-color); /* Dark gray background */
-    color: var(--text-color); /* White text */
+    background-color: var(--primary-color);
+    color: var(--text-color);
 }
 
-/* Responsive Adjustments */
+#works p {
+    color: var(--light-text);
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.skill-box {
+    background-color: transparent;
+    color: var(--secondary-color);
+    padding: 10px 15px;
+    border: 2px solid var(--secondary-color);
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .skill-box {
+        font-size: 12px; /* Adjust font size for mobile */
+    }
+}
+
 @media (max-width: 768px) {
     .navbar-nav {
         text-align: center;
@@ -249,11 +268,10 @@ footer a:hover {
         padding-top: 4rem;
     }
     #about p {
-        font-size: 1rem; /* Smaller font size on mobile screens */
+        font-size: 1rem;
     }
 }
 
-/* Additional responsive adjustments */
 @media (max-width: 767px) {
     h1 {
         font-size: 2rem;
@@ -290,48 +308,3 @@ footer a:hover {
         margin-bottom: 1.5rem;
     }
 }
-
-/* Skills Section */
-.skills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 20px;
-    justify-content: center;
-}
-
-.skill-box {
-    background-color: transparent; /* Make the background transparent */
-    color: var(--secondary-color); /* Use secondary color for text */
-    padding: 10px 15px;
-    border: 2px solid var(--secondary-color); /* Add border with secondary color */
-    border-radius: 5px;
-    font-size: 14px;
-    font-weight: 500;
-    text-align: center;
-}
-
-/* Adjust border and text color on mobile devices if needed */
-@media (max-width: 768px) {
-    .skill-box {
-        border-color: var(--secondary-color); /* Ensure the border remains secondary color */
-        color: var(--secondary-color); /* Ensure the text color remains secondary color */
-    }
-}
-
-/* Custom styles for About Section */
-#about {
-    background-color: #121212;
-    color: gray;
-}
-
-/* Custom styles for Projects Section */
-#works {
-    background-color:  #121212;
-    color: gray;
-}
-
-#works p {
-    color: gray;
-}
-
