@@ -1,83 +1,91 @@
-$(document).ready(function() {
-    // Smooth scrolling
-    $('a.nav-link').on('click', function(event) {
-        if (this.hash !== "") {
-            event.preventDefault();
-            var hash = this.hash;
-            $('html, body').animate({
-                scrollTop: $(hash).offset().top - 56
-            }, 800, function() {
-                // Collapse the navbar after the scroll animation is complete
-                var navbarToggler = $('.navbar-toggler');
-                var navbarCollapse = $('.navbar-collapse');
-                if (navbarCollapse.hasClass('show')) {
-                    navbarToggler.click();
+(function () {
+    'use strict';
+
+    // Footer year
+    var y = document.getElementById('year');
+    if (y) y.textContent = new Date().getFullYear();
+
+    // Navbar: border on scroll + mobile menu
+    var nav = document.getElementById('nav');
+    var toggle = document.getElementById('navToggle');
+    var links = document.getElementById('navLinks');
+    function onScroll() { nav.classList.toggle('scrolled', window.scrollY > 10); }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    function closeMenu() {
+        links.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+    }
+    toggle.addEventListener('click', function () {
+        var open = links.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(open));
+    });
+    links.addEventListener('click', function (e) { if (e.target.tagName === 'A') closeMenu(); });
+
+    // Highlight active section link
+    var sections = document.querySelectorAll('main section[id]');
+    var anchors = {};
+    links.querySelectorAll('a[href^="#"]').forEach(function (a) { anchors[a.getAttribute('href').slice(1)] = a; });
+    if ('IntersectionObserver' in window) {
+        var spy = new IntersectionObserver(function (entries) {
+            entries.forEach(function (en) {
+                if (en.isIntersecting && anchors[en.target.id]) {
+                    Object.values(anchors).forEach(function (a) { a.classList.remove('active'); });
+                    anchors[en.target.id].classList.add('active');
                 }
             });
-        }
-    });
+        }, { rootMargin: '-45% 0px -50% 0px' });
+        sections.forEach(function (s) { spy.observe(s); });
 
-    // Navbar background change on scroll
-    $(window).scroll(function() {
-        if ($(this).scrollTop() > 50) {
-            $('.navbar').addClass('navbar-scrolled');
-        } else {
-            $('.navbar').removeClass('navbar-scrolled');
-        }
-    });
+        // Scroll reveal
+        var targets = document.querySelectorAll('.card, .job, .stat, .prose, h2, .kicker');
+        targets.forEach(function (el) { el.classList.add('reveal'); });
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (en) {
+                if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+            });
+        }, { threshold: 0.08 });
+        targets.forEach(function (el) { io.observe(el); });
+    }
 
-    // Form submission
-    $('#contact-form').submit(function(e) {
+    // Contact form
+    var form = document.getElementById('contact-form');
+    var status = document.getElementById('form-status');
+    var btn = document.getElementById('sendBtn');
+
+    function say(msg, ok) {
+        status.textContent = msg;
+        status.className = ok ? 'ok' : 'err';
+    }
+
+    form.addEventListener('submit', function (e) {
         e.preventDefault();
-        $.ajax({
-            url: '/send_message',
-            type: 'post',
-            data: $('#contact-form').serialize(),
-            success: function(response) {
-                if (response.status === 'success') {
-                    $('#form-status').html('<div class="alert alert-success">Message sent successfully!</div>');
+        var data = new FormData(form);
+        var email = String(data.get('email') || '').trim();
+        if (!String(data.get('name') || '').trim() || !String(data.get('message') || '').trim() ||
+            !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            say('Please fill in all fields with a valid email.', false);
+            return;
+        }
+        btn.disabled = true;
+        btn.textContent = 'Sending...';
+        fetch('/send_message', { method: 'POST', body: data })
+            .then(function (r) { return r.json(); })
+            .then(function (res) {
+                if (res.status === 'success') {
+                    say('Thanks! Your message was sent. I will get back to you soon.', true);
+                    form.reset();
                 } else {
-                    $('#form-status').html('<div class="alert alert-danger">An error occurred. Please try again.</div>');
+                    say(res.message || 'Could not send the message. Please email me directly at jawadahmad.swe@gmail.com.', false);
                 }
-            }
-        });
+            })
+            .catch(function () {
+                say('Network error. Please email me directly at jawadahmad.swe@gmail.com.', false);
+            })
+            .finally(function () {
+                btn.disabled = false;
+                btn.textContent = 'Send message';
+            });
     });
-
-    // Add animation to sections when scrolling
-    $(window).on('scroll', function() {
-        $('section').each(function() {
-            if ($(this).isInViewport()) {
-                $(this).find('.animate__animated').not('.animate__animated--triggered').each(function() {
-                    $(this).addClass('animate__animated--triggered');
-                    var animationClass = $(this).attr('class').split(' ').find(c => c.startsWith('animate__'));
-                    $(this).addClass(animationClass);
-                });
-            }
-        });
-    });
-
-    // Check if element is in viewport
-    $.fn.isInViewport = function() {
-        var elementTop = $(this).offset().top;
-        var elementBottom = elementTop + $(this).outerHeight();
-        var viewportTop = $(window).scrollTop();
-        var viewportBottom = viewportTop + $(window).height();
-        return elementBottom > viewportTop && elementTop < viewportBottom;
-    };
-
-    // Trigger animations for elements in view on page load
-    $(window).trigger('scroll');
-
-    // Contact form reset and fade-out message
-    $('#contact-form').on('submit', function(e) {
-        e.preventDefault();
-        // Display success message
-        $('#form-status').text('Thank you for your message. I will get back to you soon.').fadeIn();
-        // Hide the success message after 5 seconds (5000 milliseconds)
-        setTimeout(function() {
-            $('#form-status').fadeOut();
-        }, 5000);
-        // Optionally reset the form
-        $('#contact-form')[0].reset();
-    });
-});
+})();

@@ -3,195 +3,312 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jawad Ahmad - Portfolio</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <title>Jawad Ahmad | AI &amp; Data Engineer: Agents, Automation, APIs</title>
+    <meta name="description" content="AI and Data Engineer building LLM agents, n8n automation workflows, RESTful APIs and production data pipelines in Python. Based in Lahore, Pakistan.">
+    <meta name="author" content="Jawad Ahmad">
+    <meta property="og:title" content="Jawad Ahmad | AI &amp; Data Engineer: Agents, Automation, APIs">
+    <meta property="og:description" content="LLM agents, workflow automation, RESTful APIs and production data pipelines.">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#0b0f14">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">  
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#home" style="color: #b3b3b3;">Jawad Ahmad</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#works">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url_for('static', filename='resume.pdf') }}" target="_blank">Resume</a></li>
+
+<header class="nav" id="nav">
+    <div class="wrap nav-inner">
+        <a href="#home" class="brand">JA<span>.</span></a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span></button>
+        <nav class="nav-links" id="navLinks">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+            <a href="{{ url_for('static', filename='resume.pdf') }}" target="_blank" rel="noopener" class="btn btn-sm">Resume</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section id="home" class="hero">
+    <div class="wrap hero-grid">
+        <div class="hero-copy">
+            <p class="eyebrow"><span class="dot"></span> Open to new opportunities</p>
+            <h1>Hi, I'm <span class="grad">Jawad Ahmad</span>.<br>AI &amp; Data Engineer building agents, automation and APIs that run in production.</h1>
+            <p class="lead">I design and ship LLM-powered agents, n8n automation workflows, RESTful APIs and large-scale data pipelines, from extraction and validation to deployment and monitoring. Python developer with 2+ years of production experience.</p>
+            <div class="cta">
+                <a href="#projects" class="btn">View my work</a>
+                <a href="#contact" class="btn btn-ghost">Get in touch</a>
+                <a href="{{ url_for('static', filename='resume.pdf') }}" target="_blank" rel="noopener" class="btn btn-ghost">Download CV</a>
+            </div>
+            <ul class="socials">
+                <li><a href="https://github.com/Jawad138" target="_blank" rel="noopener">GitHub</a></li>
+                <li><a href="https://www.linkedin.com/in/jawad-ahmad-980945260/" target="_blank" rel="noopener">LinkedIn</a></li>
+                <li><a href="mailto:jawadahmad.swe@gmail.com">Email</a></li>
+            </ul>
+        </div>
+        <div class="hero-visual">
+            <div class="avatar"><img src="{{ url_for('static', filename='img/profile.jpg') }}" alt="Jawad Ahmad"></div>
+            <div class="chip chip-1">AI Agents</div>
+            <div class="chip chip-2">REST APIs</div>
+            <div class="chip chip-3">n8n</div>
+            <div class="chip chip-4">Data Pipelines</div>
+        </div>
+    </div>
+    <div class="wrap stats">
+        <div class="stat"><b>2+ yrs</b><span>Professional experience</span></div>
+        <div class="stat"><b>100+</b><span>Websites automated for scheduled collection</span></div>
+        <div class="stat"><b>Multi-market</b><span>European retail &amp; telecom data</span></div>
+        <div class="stat"><b>End-to-end</b><span>Scrape, clean, deploy, monitor</span></div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+    <div class="wrap two-col">
+        <div>
+            <p class="kicker">About</p>
+            <h2>Data, APIs and AI, built to run on their own.</h2>
+        </div>
+        <div class="prose">
+            <p>I'm a Software Engineering graduate (University of Lahore, 2024) and Python developer with 2+ years of experience across data engineering, backend APIs, automation and applied AI. My strongest production experience is at a UK-based competitive-intelligence company, where I build and run the pipelines that collect product, pricing and offer data from retailer and telecom websites across multiple European markets.</p>
+            <p>I build the full system, not just one piece: REST APIs with FastAPI, Flask and Django; scrapers that handle JavaScript-heavy sites and token-authenticated private APIs; validation and cleaning with pandas; Docker deployments on AWS, GCP and Azure; and monitoring through dashboards and n8n alerts, so failures are caught before anyone downstream notices.</p>
+            <p>On the AI side I build LLM-powered agents and automation workflows (n8n, LangChain, RAG), plus computer vision systems with YOLO and MediaPipe. I like turning manual, repetitive work into reliable, automated systems.</p>
+        </div>
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="section alt">
+    <div class="wrap">
+        <p class="kicker">Skills</p>
+        <h2>Tools I work with</h2>
+        <div class="skill-grid">
+            <div class="card skill">
+                <h3>Data Engineering &amp; Scraping</h3>
+                <div class="tags"><span>Scrapy</span><span>Scrapy-Playwright</span><span>Playwright</span><span>Selenium</span><span>REST / GraphQL APIs</span><span>Proxy management</span><span>pandas</span><span>NumPy</span><span>ETL</span><span>Data validation</span></div>
+            </div>
+            <div class="card skill">
+                <h3>Automation &amp; Monitoring</h3>
+                <div class="tags"><span>n8n</span><span>Cron scheduling</span><span>Google Chat alerts</span><span>Pipeline dashboards</span><span>GitHub Actions</span><span>CI/CD</span></div>
+            </div>
+            <div class="card skill">
+                <h3>AI &amp; Machine Learning</h3>
+                <div class="tags"><span>Generative AI</span><span>LangChain</span><span>RAG</span><span>NLP</span><span>YOLO</span><span>MediaPipe</span><span>OpenCV</span><span>PyTorch</span></div>
+            </div>
+            <div class="card skill">
+                <h3>Backend &amp; Databases</h3>
+                <div class="tags"><span>FastAPI</span><span>Flask</span><span>Django</span><span>REST APIs</span><span>PostgreSQL</span><span>SQL Server</span><span>MongoDB</span></div>
+            </div>
+            <div class="card skill">
+                <h3>Cloud &amp; DevOps</h3>
+                <div class="tags"><span>AWS</span><span>Google Cloud</span><span>Azure</span><span>Docker</span><span>Git</span></div>
+            </div>
+            <div class="card skill">
+                <h3>Languages</h3>
+                <div class="tags"><span>Python</span><span>SQL</span><span>JavaScript</span><span>HTML / CSS</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="section">
+    <div class="wrap">
+        <p class="kicker">Experience</p>
+        <h2>Where I've worked</h2>
+        <div class="timeline">
+
+            <article class="job">
+                <div class="job-head">
+                    <div><h3>Python Developer</h3><p class="org">Green Origin (Watch My Competitor, UK)</p></div>
+                    <span class="period">13 months</span>
+                </div>
+                <ul>
+                    <li>Built and maintained Scrapy-based spiders collecting product, pricing and offer data from retailer and telecom websites across multiple European markets.</li>
+                    <li>Fixed spiders broken by layout changes, request blocking and JavaScript-rendered content using Scrapy-Playwright, proxies, and header and cookie handling.</li>
+                    <li>Extracted complex data through private APIs with token-based authentication, including product variants, prices tied to a selection (colour, storage, tariff, contract length) and subscription terms.</li>
+                    <li>Ran pipelines end to end: cron scheduling, Docker jobs on AWS and GCP, and cleaned output delivered to cloud storage.</li>
+                    <li>Set up n8n workflows that alert the team in Google Chat whenever a pipeline fails.</li>
+                    <li>Managed the dashboard backend via RESTful APIs so each spider reports run status, item counts and errors automatically.</li>
+                    <li>Cleaned, standardised, mapped and validated data with pandas and custom scripts; monitored production runs and debugged timeouts, HTTP errors and data-volume drops; shipped through Git, GitHub Actions and CI/CD.</li>
                 </ul>
-            </div>
-        </div>
-    </nav>
+                <div class="tags"><span>Scrapy</span><span>Playwright</span><span>Docker</span><span>AWS</span><span>GCP</span><span>n8n</span><span>pandas</span><span>REST APIs</span></div>
+            </article>
 
-    <!-- Home Section -->
-    <section id="home" class="py-5">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <h1 class="animate__animated animate__fadeInLeft">Hello, I am Jawad Ahmad</h1>
-                    <h2 class="animate__animated animate__fadeInLeft animate__delay-1s">Software Engineer</h2>
-                    <p class="animate__animated animate__fadeInLeft animate__delay-2s">Expert in Python Development</p>
-                    <p class="animate__animated animate__fadeInLeft animate__delay-3s">Proficient in Flask and Django</p>
-                    <p class="animate__animated animate__fadeInLeft animate__delay-4s">Skilled in Generative AI, including Langchain and NLP</p>
+            <article class="job">
+                <div class="job-head">
+                    <div><h3>Python Developer</h3><p class="org">Techorphic</p></div>
+                    <span class="period">10 months</span>
                 </div>
-                <div class="col-md-6 text-center">
-                    <div class="profile-pic-container animate__animated animate__zoomIn">
-                        <img src="{{ url_for('static', filename='img/profile.jpg') }}" alt="Jawad Ahmad" class="img-fluid rounded-circle profile-pic">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                <ul>
+                    <li>Automated data collection from 30+ websites with Scrapy and Selenium, stored in SQL Server, with daily runs scheduled on Azure.</li>
+                    <li>Developed an e-commerce website with Django and FastAPI, including backend and APIs.</li>
+                    <li>Built a job portal in Django with user authentication and job listings, plus several FastAPI REST services.</li>
+                </ul>
+                <div class="tags"><span>Scrapy</span><span>Selenium</span><span>SQL Server</span><span>Azure</span><span>Django</span><span>FastAPI</span></div>
+            </article>
 
- <!-- About Section -->
- <section id="about" class="py-5">
-    <div class="container">
-        <h2 class="animate__animated animate__fadeInUp" style="font-size: 2em;">About Me</h2>
-        <p class="animate__animated animate__fadeInUp animate__delay-1s" style="font-size: 1.4em; color: gray "> As a passionate software engineer, I specialize in Python, Natural Language Processing (NLP), and I am well-versed in both front-end and back-end technologies. I have hands-on experience with frameworks such as Flask and Django, and I'm proficient in creating dynamic and responsive user interfaces using HTML, CSS, Bootstrap, JavaScript, and jQuery. Additionally, I have tackled web scraping project and have knowledge of Selenium and Scrapy. I also did projects using Wordpress and Shopify. My skills span across multiple technologies, enabling me to build innovative solutions and tackle complex problems effectively.</p> <br>
-        <div class="skills">
-            <span class="skill-box">HTML</span>
-            <span class="skill-box">CSS</span>
-            <span class="skill-box">Bootstrap</span>
-            <span class="skill-box">JavaScript</span>
-            <span class="skill-box">jQuery</span>
-            <span class="skill-box">Django</span>
-            <span class="skill-box">Flask</span>
-            <span class="skill-box">Python</span>
-            <span class="skill-box">Selenium</span>
-            <span class="skill-box">Scrapy</span>
-            <span class="skill-box">Wordpress</span>
-            <span class="skill-box">Shopify</span>
+            <article class="job">
+                <div class="job-head">
+                    <div><h3>Python Intern</h3><p class="org">ECodeCamp Pvt Ltd</p></div>
+                    <span class="period">2 months</span>
+                </div>
+                <ul>
+                    <li>Built web applications with Flask and FastAPI and wrote scraping and automation scripts to collect website data.</li>
+                </ul>
+            </article>
         </div>
     </div>
 </section>
 
+<!-- PROJECTS -->
+<section id="projects" class="section alt">
+    <div class="wrap">
+        <p class="kicker">Projects</p>
+        <h2>Selected work</h2>
+        <p class="sub">Production client data work is under NDA, so the projects below are the ones I can show publicly.</p>
 
+        <div class="proj-grid">
 
-   <!-- Experience Section -->
-<section id="experience" class="py-5">
-    <div class="container">
-        <h2 class="animate__animated animate__fadeInUp">Experience</h2>
-        <div class="experience-card animate__animated animate__fadeInUp animate__delay-1s">
-            <div class="card-body">
-                <h4 class="card-title">
-                    <i class="fas fa-briefcase"></i> Python Development Intern
-                </h4>
-                <h5 class="card-subtitle mb-2">EcodeCamp Pvt Ltd (July 2024 - Present)</h5>
-                <p class="card-text">
-                    Worked on various projects involving Python development, Flask, web scraping, and Selenium. Gained hands-on experience in building web applications, automating tasks, and extracting data from websites. Contributed to the development of efficient and scalable solutions while collaborating with a team of experienced developers.
-                </p>
-            </div>
+            <article class="card proj featured">
+                <img src="{{ url_for('static', filename='img/ppe.jpg') }}" alt="PPE detection model output with bounding boxes on a construction site" loading="lazy">
+                <div class="proj-body">
+                    <span class="badge">Computer Vision</span>
+                    <h3>PPE Detection with YOLO</h3>
+                    <p>Fine-tuned a YOLO model on a 1,000-image, 12-class construction PPE dataset, reaching <b>0.885 precision</b> and <b>0.745 mAP50</b> on 200 held-out images. Per-person compliance logic flags missing helmets and vests, delivered as a Streamlit app with live webcam and video modes.</p>
+                    <div class="tags"><span>Ultralytics YOLO</span><span>PyTorch</span><span>OpenCV</span><span>Streamlit</span></div>
+                </div>
+            </article>
+
+            <article class="card proj">
+                <div class="proj-body">
+                    <span class="badge">Data Engineering</span>
+                    <h3>Automated Product Data Pipeline</h3>
+                    <p>A daily pipeline that scrapes product data from websites, then cleans, standardises and validates it through an ETL workflow in Python and Scrapy, delivering analysis-ready data to retail brands.</p>
+                    <div class="tags"><span>Python</span><span>Scrapy</span><span>ETL</span><span>pandas</span></div>
+                    <a class="link" href="https://contra.com/p/6omb22os-i-built-an-automated-data" target="_blank" rel="noopener">View on Contra &rarr;</a>
+                </div>
+            </article>
+
+            <article class="card proj">
+                <div class="proj-body">
+                    <span class="badge">AI Automation</span>
+                    <h3>AI Client Onboarding (n8n)</h3>
+                    <p>A form submission fans out to two parallel branches. One uses a Groq LLM agent to write a personalised welcome email sent through Gmail. The other extracts, prioritises and summarises client data into Google Sheets. Code nodes make the LLM output reliable, with fallbacks.</p>
+                    <div class="tags"><span>n8n</span><span>Groq</span><span>AI Agents</span><span>Gmail</span><span>Google Sheets</span></div>
+                </div>
+            </article>
+
+            <article class="card proj">
+                <div class="proj-body">
+                    <span class="badge">LLM Application</span>
+                    <h3>WhatsApp AI Order Bot</h3>
+                    <p>A Flask webhook on the WhatsApp Cloud API that answers customer questions from a shop catalog using an LLM, extracts orders from the conversation and logs them automatically.</p>
+                    <div class="tags"><span>Flask</span><span>WhatsApp Cloud API</span><span>LLM</span><span>Webhooks</span></div>
+                </div>
+            </article>
+
+            <article class="card proj">
+                <div class="proj-body">
+                    <span class="badge">Computer Vision</span>
+                    <h3>Hand Gesture Recognition</h3>
+                    <p>Real-time tracking of 21 hand joints at 60 to 90 FPS. Recognises 14+ gestures, counts fingers from 0 to 10 across both hands and detects a two-step "help" signal that raises an emergency alert. Exponential smoothing removes jitter without adding latency.</p>
+                    <div class="tags"><span>MediaPipe</span><span>OpenCV</span><span>Python</span></div>
+                </div>
+            </article>
+
+            <article class="card proj">
+                <div class="proj-body">
+                    <span class="badge">Data Engineering</span>
+                    <h3>Offline Translation Pipeline</h3>
+                    <p>A batch pipeline that translates large product CSVs from Dutch to English using a local CTranslate2 Marian model, with checkpointing so long runs can resume after interruption.</p>
+                    <div class="tags"><span>CTranslate2</span><span>NLP</span><span>pandas</span></div>
+                </div>
+            </article>
+
+            <article class="card proj">
+                <div class="proj-body">
+                    <span class="badge">Desktop App</span>
+                    <h3>PDF Editor Pro</h3>
+                    <p>A free offline desktop PDF editor with text editing, annotations, highlight, redaction, whiteout and shape tools, built with PyMuPDF and a modern dark CustomTkinter UI.</p>
+                    <div class="tags"><span>PyMuPDF</span><span>CustomTkinter</span><span>Python</span></div>
+                </div>
+            </article>
+
+            <article class="card proj">
+                <img class="cover" src="{{ url_for('static', filename='img/project1.png') }}" alt="Chat with your documents app screenshot" loading="lazy">
+                <div class="proj-body">
+                    <span class="badge">Generative AI</span>
+                    <h3>Chat with Your Documents</h3>
+                    <p>Upload a PDF and ask questions in natural language to get answers grounded in the document, using a LangChain retrieval (RAG) pipeline.</p>
+                    <div class="tags"><span>LangChain</span><span>RAG</span><span>NLP</span></div>
+                    <a class="link" href="https://github.com/Jawad138/Langchain_chat_with_your_doc" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+                </div>
+            </article>
+
+            <article class="card proj">
+                <img class="cover" src="{{ url_for('static', filename='img/project2.jpg') }}" alt="Text classification and translation app screenshot" loading="lazy">
+                <div class="proj-body">
+                    <span class="badge">NLP</span>
+                    <h3>Text Classification &amp; Translation</h3>
+                    <p>Predicts the language of input text and translates it into a chosen target language.</p>
+                    <div class="tags"><span>NLP</span><span>Python</span></div>
+                    <a class="link" href="https://github.com/Jawad138/Text-Classification" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+                </div>
+            </article>
+
+            <article class="card proj">
+                <img class="cover" src="{{ url_for('static', filename='img/project3.png') }}" alt="Todo list app screenshot" loading="lazy">
+                <div class="proj-body">
+                    <span class="badge">Web App</span>
+                    <h3>Todo List App</h3>
+                    <p>Manage tasks with add, edit, delete and mark-as-done, built with Flask, JavaScript and JSON storage.</p>
+                    <div class="tags"><span>Flask</span><span>JavaScript</span></div>
+                    <a class="link" href="https://github.com/Jawad138/Todo_List_App" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+                </div>
+            </article>
         </div>
+        <p class="more"><a href="https://github.com/Jawad138" target="_blank" rel="noopener">See more on GitHub &rarr;</a></p>
     </div>
 </section>
 
-
-
-   <!-- Projects Section -->
-<section id="works" class="py-5">
-    <div class="container">
-        <h2 class="animate__animated animate__fadeInUp">Projects</h2>
-        <div class="row animate__animated animate__fadeInUp animate__delay-1s">
-                <div class="col-md-4 mb-3">
-                    <div class="card">
-                        <img src="{{ url_for('static', filename='img/project1.png') }}" class="card-img-top" alt="Project 1">
-                        <div class="card-body">
-                            <h5 class="card-title">PDF Q&A App</h5>
-                            <p class="card-text">Upload a PDF file and ask questions in natural language to get accurate answers based on the document's content.</p>
-                            <a href="https://github.com/Jawad138/Langchain_chat_with_your_doc" class="btn btn-primary" target="_blank">View on GitHub</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div class="card">
-                        <img src="{{ url_for('static', filename='img/project2.jpg') }}" class="card-img-top" alt="Project 2">
-                        <div class="card-body">
-                            <h5 class="card-title">Text Classification & Translation</h5>
-                            <p class="card-text">Predicts the language of text and translates it to your desired language using a backend dataset.</p>
-                            <a href="https://github.com/Jawad138/Text-Classification" class="btn btn-primary" target="_blank">View on GitHub</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div class="card">
-                        <img src="{{ url_for('static', filename='img/project3.png') }}" class="card-img-top" alt="Project 3">
-                        <div class="card-body">
-                            <h5 class="card-title">Todo List App</h5>
-                            <p class="card-text">Manage tasks with add, edit, delete, and mark-as-done features using Flask, JavaScript, and JSON storage.</p>
-                            <a href="https://github.com/Jawad138/Todo_List_App" class="btn btn-primary" target="_blank">View on GitHub</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<!-- CONTACT -->
+<section id="contact" class="section">
+    <div class="wrap two-col">
+        <div>
+            <p class="kicker">Contact</p>
+            <h2>Let's work together.</h2>
+            <p class="sub">Have a data pipeline, automation or AI project in mind? Send a message and I'll reply soon.</p>
+            <ul class="contact-list">
+                <li><span>Email</span><a href="mailto:jawadahmad.swe@gmail.com">jawadahmad.swe@gmail.com</a></li>
+                <li><span>Location</span>Lahore, Pakistan</li>
+                <li><span>GitHub</span><a href="https://github.com/Jawad138" target="_blank" rel="noopener">github.com/Jawad138</a></li>
+                <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/jawad-ahmad-980945260/" target="_blank" rel="noopener">Jawad Ahmad</a></li>
+            </ul>
         </div>
-    </section>
+        <form id="contact-form" class="card form" novalidate>
+            <label>Name<input type="text" name="name" required maxlength="100" autocomplete="name"></label>
+            <label>Email<input type="email" name="email" required maxlength="150" autocomplete="email"></label>
+            <label>Message<textarea name="message" rows="5" required maxlength="3000"></textarea></label>
+            <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <button type="submit" class="btn" id="sendBtn">Send message</button>
+            <p id="form-status" role="status" aria-live="polite"></p>
+        </form>
+    </div>
+</section>
+</main>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-5">
-        <div class="container">
-            <h2 class="animate__animated animate__fadeInUp">Contact Me</h2>
-            <form id="contact-form" class="animate__animated animate__fadeInUp animate__delay-1s">
-                <div class="mb-3">
-                    <label for="name" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="name" name="name" required>
-                </div>
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" name="email" required>
-                </div>
-                <div class="mb-3">
-                    <label for="message" class="form-label">Message</label>
-                    <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Send Message</button>
-            </form>
-            <div id="form-status" class="mt-3"></div>
-        </div>
-    </section>
+<footer class="footer">
+    <div class="wrap">
+        <p>&copy; <span id="year">2026</span> Jawad Ahmad. Built with Flask and deployed on Vercel.</p>
+    </div>
+</footer>
 
-    <!-- Footer -->
-    <footer class="py-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-3 mb-md-0">
-                    <h5>Jawad Ahmad</h5>
-                    <p>Software Engineer specializing in Python and Web Development</p>
-                </div>
-                <div class="col-md-4 mb-3 mb-md-0">
-                    <h5>Contact</h5>
-                    <p><i class="fas fa-map-marker-alt"></i> Lahore, Punjab, Pakistan</p>
-                    <p><i class="fas fa-envelope"></i> <a href="mailto:jawadahmad.swe@gmail.com">jawadahmad.swe@gmail.com</a></p>
-                </div>
-                <div class="col-md-4">
-                    <h5>Connect</h5>
-                    <a href="https://www.linkedin.com/in/jawad-ahmad-980945260/" target="_blank" class="me-3">
-                        <i class="fab fa-linkedin"></i> LinkedIn
-                    </a>
-                    <a href="https://github.com/Jawad138" target="_blank">
-                        <i class="fab fa-github"></i> GitHub
-                    </a>
-                </div>
-            </div>
-            <hr class="mt-4 mb-3">
-            <div class="text-center">
-                <p>&copy; 2024 Jawad Ahmad. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
